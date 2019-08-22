@@ -7,10 +7,11 @@ if [ $(id -u) != 0 ]; then
 fi
 # Get the kernel source for LT4 21.4
 cd /usr/src/
-wget http://developer.download.nvidia.com/embedded/L4T/r21_Release_v5.0/source/kernel_src.tbz2
-# Decompress
+wget -O kernel_src.tbz2 https://developer.nvidia.com/embedded/dlc/l4t-Jetson-TK1-Kernel-Sources-R21-5# Decompress
 tar -xvf kernel_src.tbz2
-cd kernel
+cd kernel/include/linux
+wget https://raw.githubusercontent.com/siemens/u-boot/master/include/linux/compiler-gcc5.h
+cd ../../
 # Get the kernel configuration file
 zcat /proc/config.gz > .config
 # Enable FTDI compilation
