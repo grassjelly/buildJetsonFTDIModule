@@ -16,6 +16,8 @@ cd ../../
 zcat /proc/config.gz > .config
 # Enable FTDI compilation
 sudo sed -i 's/# CONFIG_USB_SERIAL_FTDI_SIO is not set/CONFIG_USB_SERIAL_FTDI_SIO=m/' .config
+sudo sed -i 's/# CONFIG_USB_SERIAL_CP210X is not set/CONFIG_USB_SERIAL_CP210X=m/' .config
+
 # Make sure that the local kernel version is set
 LOCALVERSION=$(uname -r)
 # vodoo incantation; This removes everything from the beginning to the last occurrence of "-"
